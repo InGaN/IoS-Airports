@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2F8DBF511BB02CB000C915D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */; };
-		2F8DBF531BB02CB000C915D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF521BB02CB000C915D1 /* ViewController.swift */; };
 		2F8DBF561BB02CB000C915D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF541BB02CB000C915D1 /* Main.storyboard */; };
 		2F8DBF581BB02CB100C915D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF571BB02CB100C915D1 /* Assets.xcassets */; };
 		2F8DBF5B1BB02CB100C915D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF591BB02CB100C915D1 /* LaunchScreen.storyboard */; };
 		2F8DBF661BB02CB100C915D1 /* AirportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF651BB02CB100C915D1 /* AirportsTests.swift */; };
 		2F8DBF711BB02CB100C915D1 /* AirportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF701BB02CB100C915D1 /* AirportsUITests.swift */; };
+		2F8DBF7F1BB02CD300C915D1 /* AirportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF7E1BB02CD300C915D1 /* AirportTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2F8DBF831BB031B100C915D1 /* AirportDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF821BB031B100C915D1 /* AirportDatabaseHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		2F8DBFB01BB03B4300C915D1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8DBFAC1BB039C900C915D1 /* libsqlite3.0.tbd */; };
+		2F8DBFB11BB03B4300C915D1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8DBFAD1BB039C900C915D1 /* libsqlite3.tbd */; };
+		2F8DBFB61BB0494C00C915D1 /* airports.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBFB51BB0494C00C915D1 /* airports.sqlite */; settings = {ASSET_TAGS = (); }; };
+		2F9AF0CE1BBAE14200868261 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AF0CD1BBAE14200868261 /* CountryCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		2FA2C1941BB414F700DACE09 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA2C1931BB414F700DACE09 /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2FC147631BC533D8002B99CF /* CountryCodeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC147621BC533D8002B99CF /* CountryCodeHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		2FF5426E1BBADD4000891A2C /* CountryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5426D1BBADD4000891A2C /* CountryCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,6 @@
 /* Begin PBXFileReference section */
 		2F8DBF4D1BB02CB000C915D1 /* Airports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F8DBF521BB02CB000C915D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2F8DBF551BB02CB000C915D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F8DBF571BB02CB100C915D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F8DBF5A1BB02CB100C915D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,16 @@
 		2F8DBF6C1BB02CB100C915D1 /* AirportsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirportsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8DBF701BB02CB100C915D1 /* AirportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsUITests.swift; sourceTree = "<group>"; };
 		2F8DBF721BB02CB100C915D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F8DBF7E1BB02CD300C915D1 /* AirportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirportTableViewController.swift; path = ../AirportTableViewController.swift; sourceTree = "<group>"; };
+		2F8DBF821BB031B100C915D1 /* AirportDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportDatabaseHelper.swift; sourceTree = "<group>"; };
+		2F8DBFAC1BB039C900C915D1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		2F8DBFAD1BB039C900C915D1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2F8DBFB31BB03D9800C915D1 /* Airport-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Airport-Bridging-Header.h"; sourceTree = "<group>"; };
+		2F8DBFB51BB0494C00C915D1 /* airports.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airports.sqlite; sourceTree = "<group>"; };
+		2F9AF0CD1BBAE14200868261 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FA2C1931BB414F700DACE09 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2FC147621BC533D8002B99CF /* CountryCodeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeHeaderView.swift; sourceTree = "<group>"; };
+		2FF5426D1BBADD4000891A2C /* CountryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8DBFB01BB03B4300C915D1 /* libsqlite3.0.tbd in Frameworks */,
+				2F8DBFB11BB03B4300C915D1 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +96,8 @@
 		2F8DBF441BB02CB000C915D1 = {
 			isa = PBXGroup;
 			children = (
+				2F8DBFAC1BB039C900C915D1 /* libsqlite3.0.tbd */,
+				2F8DBFAD1BB039C900C915D1 /* libsqlite3.tbd */,
 				2F8DBF4F1BB02CB000C915D1 /* Airports */,
 				2F8DBF641BB02CB100C915D1 /* AirportsTests */,
 				2F8DBF6F1BB02CB100C915D1 /* AirportsUITests */,
@@ -97,12 +118,19 @@
 		2F8DBF4F1BB02CB000C915D1 /* Airports */ = {
 			isa = PBXGroup;
 			children = (
+				2F8DBF7E1BB02CD300C915D1 /* AirportTableViewController.swift */,
+				2F8DBF821BB031B100C915D1 /* AirportDatabaseHelper.swift */,
 				2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */,
-				2F8DBF521BB02CB000C915D1 /* ViewController.swift */,
+				2F8DBFB51BB0494C00C915D1 /* airports.sqlite */,
 				2F8DBF541BB02CB000C915D1 /* Main.storyboard */,
+				2FF5426D1BBADD4000891A2C /* CountryCollectionViewController.swift */,
+				2FC147621BC533D8002B99CF /* CountryCodeHeaderView.swift */,
+				2F9AF0CD1BBAE14200868261 /* CountryCollectionViewCell.swift */,
+				2FA2C1931BB414F700DACE09 /* MapViewController.swift */,
 				2F8DBF571BB02CB100C915D1 /* Assets.xcassets */,
 				2F8DBF591BB02CB100C915D1 /* LaunchScreen.storyboard */,
 				2F8DBF5C1BB02CB100C915D1 /* Info.plist */,
+				2F8DBFB31BB03D9800C915D1 /* Airport-Bridging-Header.h */,
 			);
 			path = Airports;
 			sourceTree = "<group>";
@@ -231,6 +259,7 @@
 				2F8DBF5B1BB02CB100C915D1 /* LaunchScreen.storyboard in Resources */,
 				2F8DBF581BB02CB100C915D1 /* Assets.xcassets in Resources */,
 				2F8DBF561BB02CB000C915D1 /* Main.storyboard in Resources */,
+				2F8DBFB61BB0494C00C915D1 /* airports.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8DBF531BB02CB000C915D1 /* ViewController.swift in Sources */,
+				2FF5426E1BBADD4000891A2C /* CountryCollectionViewController.swift in Sources */,
+				2F9AF0CE1BBAE14200868261 /* CountryCollectionViewCell.swift in Sources */,
+				2F8DBF7F1BB02CD300C915D1 /* AirportTableViewController.swift in Sources */,
+				2FC147631BC533D8002B99CF /* CountryCodeHeaderView.swift in Sources */,
+				2F8DBF831BB031B100C915D1 /* AirportDatabaseHelper.swift in Sources */,
 				2F8DBF511BB02CB000C915D1 /* AppDelegate.swift in Sources */,
+				2FA2C1941BB414F700DACE09 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinMatsubara.Airports;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Airports/Airport-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -411,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinMatsubara.Airports;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "AIrports/Airport-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -481,6 +517,7 @@
 				2F8DBF771BB02CB100C915D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F8DBF781BB02CB100C915D1 /* Build configuration list for PBXNativeTarget "AirportsTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +526,7 @@
 				2F8DBF7A1BB02CB100C915D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F8DBF7B1BB02CB100C915D1 /* Build configuration list for PBXNativeTarget "AirportsUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +535,7 @@
 				2F8DBF7D1BB02CB100C915D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

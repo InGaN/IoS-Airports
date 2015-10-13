@@ -19,8 +19,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var airportsMap: MKMapView!
     
     @IBOutlet weak var label1: UILabel!
-    var initialLocation: CLLocationCoordinate2D!
-    let schipholLocation = CLLocationCoordinate2D(latitude: 52.3086013794, longitude: 4.76388978958)
+    
+    //var initialLocation: CLLocationCoordinate2D!
+    //let schipholLocation = CLLocationCoordinate2D(latitude: 52.3086013794, longitude: 4.76388978958)
+    
+    var departureLocation: CLLocationCoordinate2D!
+    var destinationLocation: CLLocationCoordinate2D!
+    
+    var airplaneAnnotation: CustomPointAnnotation = CustomPointAnnotation()
+    var airplaneAnnotationPosition: NSInteger = 0
+    var airplaneAnnotationRotation: Double!
+    
+    var geoLine: MKGeodesicPolyline!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +38,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         airportsMap.delegate = self // if you forget this, no drawings...
         label1.text = airportName
         
-        centerMapOnLocation(initialLocation)
-        createRoute()
-        drawAnnotation(airportName!, location: initialLocation, type: "airport")
-        drawAnnotation("Schiphol", location: schipholLocation, type: "airport")
+        departureLocation = (airportDeparture?.location)!
+        destinationLocation = (airportDestination?.location)!
+        
+        centerMapOnLocation(departureLocation)
+        
+        geoLine = createRoute()
+        self.airportsMap.addOverlay(geoLine)
+        self.airportsMap.insertOverlay(geoLine, aboveOverlay: airportsMap.overlays.last!)
+        
+        airplaneAnnotation.title = "Airplane"
+        airplaneAnnotation.coordinate = departureLocation
+        airplaneAnnotation.imageName = "airplane"
+        self.airportsMap.addAnnotation(airplaneAnnotation)
+        
+        drawAnnotation((airportDeparture?.name)!, location: departureLocation, type: "airport")
+        drawAnnotation((airportDestination?.name)!, location: destinationLocation, type: "airport")
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "updateAirplane", userInfo: nil, repeats: true)
         
         print("drawing complete")
     }
@@ -58,7 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func centerMapOnLocation(location: CLLocationCoordinate2D) {
         let loc = CLLocation(latitude: location.latitude, longitude: location.longitude);
         
-        let regionRadius: CLLocationDirection = 8000000
+        let regionRadius: CLLocationDirection = 6000000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(loc.coordinate,regionRadius, regionRadius)
         self.airportsMap.setRegion(coordinateRegion, animated: false)
     }
@@ -73,23 +97,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return nil
     }
     
-    func createRoute() {
+    func createRoute() -> MKGeodesicPolyline {
         //let myPath = NSBundle.mainBundle().pathForResource("Flightplan", ofType: "plist")
-        let otherLocation = initialLocation
-        var locations: [CLLocationCoordinate2D] = [schipholLocation, otherLocation]
+
+        var locations: [CLLocationCoordinate2D] = [departureLocation, destinationLocation]
         
         //let myPolyLine = MKPolyline(coordinates: &locations, count: 2)
         let myGeodesicLine = MKGeodesicPolyline(coordinates: &locations, count: 2)
         
-        let loc1: CLLocation = CLLocation(latitude: schipholLocation.latitude, longitude: schipholLocation.longitude)
-        let loc2: CLLocation = CLLocation(latitude: otherLocation.latitude, longitude: otherLocation.longitude)
+        let loc1: CLLocation = CLLocation(latitude: departureLocation.latitude, longitude: departureLocation.longitude)
+        let loc2: CLLocation = CLLocation(latitude: destinationLocation.latitude, longitude: destinationLocation.longitude)
         
         let distance: CLLocationDistance = loc1.distanceFromLocation(loc2)
         
         label1.text = String(format: "Distance: %0.2f KM", distance/1000)
         
-        self.airportsMap.addOverlay(myGeodesicLine)
-        self.airportsMap.insertOverlay(myGeodesicLine, aboveOverlay: airportsMap.overlays.last!)
+        return myGeodesicLine
     }
     
     @IBAction func test(sender: AnyObject) {
@@ -114,6 +137,44 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.airportsMap.addAnnotation(annotation)
     }
     
+    func updateAirplane() {
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            dispatch_async(dispatch_get_main_queue()) {
+                let step: NSInteger = 3
+                
+                if self.airplaneAnnotationPosition + step >= self.geoLine.pointCount {
+                    return
+                }
+                let prevMapPoint: MKMapPoint = self.geoLine.points()[self.airplaneAnnotationPosition]
+                self.airplaneAnnotationPosition += step
+                let nextMapPoint: MKMapPoint = self.geoLine.points()[self.airplaneAnnotationPosition]
+                
+                self.airplaneAnnotationRotation = self.RotationBetweenPoints(prevMapPoint, destinationPoint: nextMapPoint)
+                self.airplaneAnnotation.coordinate = MKCoordinateForMapPoint(nextMapPoint)
+                
+                let rotation: CGFloat = CGFloat(self.DegreesToRadians(self.airplaneAnnotationRotation))
+                
+                self.airportsMap.viewForAnnotation(self.airplaneAnnotation)?.transform = CGAffineTransformRotate(self.airportsMap.transform, rotation)
+            }
+        }
+    }
+    
+    func RotationBetweenPoints(sourcePoint:MKMapPoint, destinationPoint:MKMapPoint) -> CLLocationDirection{
+        let x: Double = destinationPoint.x - sourcePoint.x;
+        let y: Double = destinationPoint.y - sourcePoint.y;
+    
+        return fmod(RadiansToDegrees(atan2(y, x)), 360.0) + 90.0;
+    }
+    
+    func RadiansToDegrees(radians: Double) -> Double {
+        return (radians * 180.0) / M_PI
+    }
+    
+    func DegreesToRadians(degrees: Double) -> Double {
+        return (degrees * M_PI) / 180.0
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("Segue to \(segue.identifier)")
         
@@ -127,14 +188,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     class CustomPointAnnotation: MKPointAnnotation {
         var imageName: String!
     }
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

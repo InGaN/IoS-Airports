@@ -30,6 +30,7 @@ class CountryCollectionViewController: UICollectionViewController {
     var xIndex = 0;
     var yIndex = 0;
     
+    var DepDes: Bool = false // 0 = Depart, 1 = Destination
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 6
@@ -93,6 +94,7 @@ class CountryCollectionViewController: UICollectionViewController {
                 //self.tableView.indexPathForSelectedRow!.row
                 let selectedCell = ((sender as? CountryCollectionViewCell)!)
                 destination.countryCode = selectedCell.countryName.text
+                destination.DepDes = self.DepDes
             }
         }
     }

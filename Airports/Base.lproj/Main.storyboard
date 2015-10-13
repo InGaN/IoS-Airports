@@ -14,17 +14,132 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="KzU-52-Zob" kind="relationship" relationship="rootViewController" id="2nf-Vu-F0k"/>
+                        <segue destination="iQS-6p-fZd" kind="relationship" relationship="rootViewController" id="1Ju-yw-sUo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIb-nX-ATG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1150" y="-216"/>
+            <point key="canvasLocation" x="-1770" y="-216"/>
         </scene>
-        <!--Country Collection View Controller-->
+        <!--Main-->
+        <scene sceneID="rjb-Qh-7Z8">
+            <objects>
+                <viewController title="Main" id="iQS-6p-fZd" customClass="MainPageViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aRH-SX-ISd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ro2-uA-Hk0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HJC-37-TSD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Departure Airport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMJ-q4-rwW">
+                                <rect key="frame" x="233" y="137" width="135" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Destination Airport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVt-Lx-N49">
+                                <rect key="frame" x="228" y="387" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-8T-XFz">
+                                <rect key="frame" x="236" y="218" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZNE-TZ-8Db"/>
+                                    <constraint firstAttribute="width" constant="128" id="y5Y-Bx-VKQ"/>
+                                </constraints>
+                                <state key="normal" title="Search by Country"/>
+                                <connections>
+                                    <segue destination="KzU-52-Zob" kind="show" identifier="segueDepMainToCountry" id="iaz-mS-WsH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-Jo-GP9">
+                                <rect key="frame" x="236" y="460" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jAA-9y-fIx"/>
+                                    <constraint firstAttribute="width" constant="128" id="tcK-dz-zdj"/>
+                                </constraints>
+                                <state key="normal" title="Search by Country"/>
+                                <connections>
+                                    <segue destination="KzU-52-Zob" kind="show" identifier="segueDesMainToCountry" id="Kqg-Me-ZdH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oZ-zs-Iz3">
+                                <rect key="frame" x="244" y="498" width="113" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BmF-1L-mDN"/>
+                                    <constraint firstAttribute="width" constant="113" id="n6F-7T-IbW"/>
+                                </constraints>
+                                <state key="normal" title="Search by Name"/>
+                                <connections>
+                                    <segue destination="kVS-Uz-VjK" kind="show" identifier="segueDesMainToTable" id="c1G-Bo-5Q4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="INPUT DESTINATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRE-fR-k3B">
+                                <rect key="frame" x="219" y="424" width="162" height="21"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="INPUT DEPARTURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9s-If-a8a">
+                                <rect key="frame" x="225" y="177" width="151" height="21"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kav-zG-Rwc">
+                                <rect key="frame" x="272" y="549" width="57" height="37"/>
+                                <state key="normal" title="FLY"/>
+                                <connections>
+                                    <segue destination="3Gl-EE-W0u" kind="show" identifier="segueMainToMap" id="emg-Xx-qyc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw9-Om-76J">
+                                <rect key="frame" x="244" y="256" width="113" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TS8-jj-kFI"/>
+                                    <constraint firstAttribute="width" constant="113" id="iwe-yO-zWi"/>
+                                </constraints>
+                                <state key="normal" title="Search by Name"/>
+                                <connections>
+                                    <segue destination="kVS-Uz-VjK" kind="show" identifier="segueDepMainToTable" id="hCF-tt-oth"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f1z-8T-XFz" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="70f-eh-axg"/>
+                            <constraint firstItem="Kw9-Om-76J" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="9SE-Ew-AYb"/>
+                            <constraint firstItem="M9s-If-a8a" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="A5n-XB-Ezf"/>
+                            <constraint firstItem="pVt-Lx-N49" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="A76-wY-cOZ"/>
+                            <constraint firstItem="5oZ-zs-Iz3" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="HCp-SR-78v"/>
+                            <constraint firstItem="Kav-zG-Rwc" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="Onq-1Y-J5q"/>
+                            <constraint firstItem="UWX-Jo-GP9" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="ihX-Fi-Xgh"/>
+                            <constraint firstItem="mMJ-q4-rwW" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="jRD-78-Hlb"/>
+                            <constraint firstItem="DRE-fR-k3B" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="njD-DR-oMZ"/>
+                            <constraint firstItem="DRE-fR-k3B" firstAttribute="centerX" secondItem="HJC-37-TSD" secondAttribute="centerX" id="u89-lG-8um"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O52-U0-j1X"/>
+                    <connections>
+                        <outlet property="buttonFly" destination="Kav-zG-Rwc" id="bsu-pE-UHe"/>
+                        <outlet property="labelDeparture" destination="M9s-If-a8a" id="oiX-TN-ROZ"/>
+                        <outlet property="labelDestination" destination="DRE-fR-k3B" id="EEI-qp-TkW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xl-fR-Onl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="-216"/>
+        </scene>
+        <!--Search by Country-->
         <scene sceneID="Pb0-kz-1vo">
             <objects>
-                <collectionViewController id="KzU-52-Zob" customClass="CountryCollectionViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Search by Country" id="KzU-52-Zob" customClass="CountryCollectionViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="e0X-EG-flc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +151,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CountryCell" id="fnB-tY-prI" customClass="CountryCollectionViewCell" customModule="Airports" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -71,7 +186,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CountryCodeHeaderView" id="IYV-hh-P5k" customClass="CountryCodeHeaderView" customModule="Airports" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Continent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQ0-nZ-FgS">
@@ -98,18 +213,18 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48f-2n-vrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470" y="-216"/>
+            <point key="canvasLocation" x="-464" y="-278"/>
         </scene>
-        <!--Airport Table View Controller-->
+        <!--Airports-->
         <scene sceneID="iWR-7h-ead">
             <objects>
-                <tableViewController id="kVS-Uz-VjK" customClass="AirportTableViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Airports" id="kVS-Uz-VjK" customClass="AirportTableViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="h5P-GE-fOp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="search" showsSearchResultsButton="YES" id="8t1-f3-gs8">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             <scopeButtonTitles>
@@ -122,7 +237,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCellOne" textLabel="hUR-km-upt" detailTextLabel="JaB-QN-ba7" style="IBUITableViewCellStyleSubtitle" id="9WG-gT-LB5">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9WG-gT-LB5" id="Rax-h6-Bj1">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -145,7 +260,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3Gl-EE-W0u" kind="show" identifier="segueToMap" id="no1-h5-GcK"/>
+                                    <segue destination="iQS-6p-fZd" kind="show" identifier="segueTableToMain" id="ccA-gD-sA8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -171,12 +286,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="198" y="-216"/>
+            <point key="canvasLocation" x="208" y="-272"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Flight Map-->
         <scene sceneID="D9U-hs-7p7">
             <objects>
-                <viewController id="3Gl-EE-W0u" customClass="MapViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Flight Map" id="3Gl-EE-W0u" customClass="MapViewController" customModule="Airports" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W5M-Gg-cTg"/>
                         <viewControllerLayoutGuide type="bottom" id="ncU-Ib-E2M"/>
@@ -231,4 +346,9 @@
             <point key="canvasLocation" x="926" y="-216"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ccA-gD-sA8"/>
+        <segue reference="c1G-Bo-5Q4"/>
+        <segue reference="Kqg-Me-ZdH"/>
+    </inferredMetricsTieBreakers>
 </document>

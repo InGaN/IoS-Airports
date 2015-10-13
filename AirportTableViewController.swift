@@ -24,12 +24,14 @@ class Airport: NSObject {
 
 class AirportTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
-    var airports = [Airport]();
+    var airports = [Airport]()
     var filteredAirports = [Airport]()
     
     @IBOutlet var myTableView: UITableView!
     var anchorIndex: Int = 0
     var countryCode: String?
+    var searching: Bool = false // incredibly blunt way to do this...
+    var DepDes: Bool = false // 0 = Depart, 1 = Destination
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +82,11 @@ class AirportTableViewController: UITableViewController, UISearchBarDelegate, UI
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchDisplayController!.searchResultsTableView {
+            searching = true;
             return self.filteredAirports.count
         }
         else {
+            searching = false;
             return airports.count
         }
     }
@@ -108,14 +112,45 @@ class AirportTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("Segue to \(segue.identifier)")
         
+        let searchIndex: Int
+        if searching {
+            searchIndex = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow!.row
+        }
+        else {
+            // not using search function
+            searchIndex = self.tableView.indexPathForSelectedRow!.row
+        }
+        // obsolete
         if segue.identifier == "segueToMap" {
-            // becomes NIL when using the search function...
-            let airportIndex = self.tableView.indexPathForSelectedRow!.row
-            print(NSString(format:"selected index: %d ", (airportIndex)))
+            print(NSString(format:"selected index: %d ", searchIndex))
             if let destination = segue.destinationViewController as? MapViewController {
-                destination.airportName = airports[(airportIndex)].name
-                destination.initialLocation = airports[airportIndex].location;
-                destination.anchorIndex = airportIndex
+                destination.airportName = airports[searchIndex].name
+                //destination.initialLocation = airports[searchIndex].location;
+                destination.anchorIndex = searchIndex
+            }
+        }
+        
+        else if segue.identifier == "segueTableToMain" {
+            print(NSString(format:"selected index: %d DepDes: %d", searchIndex, DepDes))
+            if DepDes { // Destination
+                if let destination = segue.destinationViewController as? MainPageViewController {
+                    if searching {
+                        airportDestination = filteredAirports[searchIndex]
+                    }
+                    else {
+                        airportDestination = airports[searchIndex]
+                    }
+                }
+            }
+            else { // Departure
+                if let destination = segue.destinationViewController as? MainPageViewController {
+                    if searching {
+                        airportDeparture = filteredAirports[searchIndex]
+                    }
+                    else {
+                        airportDeparture = airports[searchIndex]
+                    }
+                }
             }
         }
     }
@@ -154,15 +189,4 @@ class AirportTableViewController: UITableViewController, UISearchBarDelegate, UI
     return true
     }
     */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2F60523B1BCD16FE00934206 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60523A1BCD16FE00934206 /* MainPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2F6F118E1BD8ECCF00C89A67 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F118D1BD8ECCF00C89A67 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		2F8DBF511BB02CB000C915D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */; };
 		2F8DBF561BB02CB000C915D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF541BB02CB000C915D1 /* Main.storyboard */; };
 		2F8DBF581BB02CB100C915D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF571BB02CB100C915D1 /* Assets.xcassets */; };
-		2F8DBF5B1BB02CB100C915D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8DBF591BB02CB100C915D1 /* LaunchScreen.storyboard */; };
 		2F8DBF661BB02CB100C915D1 /* AirportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF651BB02CB100C915D1 /* AirportsTests.swift */; };
 		2F8DBF711BB02CB100C915D1 /* AirportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF701BB02CB100C915D1 /* AirportsUITests.swift */; };
 		2F8DBF7F1BB02CD300C915D1 /* AirportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF7E1BB02CD300C915D1 /* AirportTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -44,11 +44,11 @@
 
 /* Begin PBXFileReference section */
 		2F60523A1BCD16FE00934206 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		2F6F118D1BD8ECCF00C89A67 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2F8DBF4D1BB02CB000C915D1 /* Airports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F8DBF551BB02CB000C915D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F8DBF571BB02CB100C915D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F8DBF5A1BB02CB100C915D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F8DBF5C1BB02CB100C915D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F8DBF611BB02CB100C915D1 /* AirportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8DBF651BB02CB100C915D1 /* AirportsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsTests.swift; sourceTree = "<group>"; };
@@ -126,12 +126,12 @@
 				2F8DBF501BB02CB000C915D1 /* AppDelegate.swift */,
 				2F8DBFB51BB0494C00C915D1 /* airports.sqlite */,
 				2F8DBF541BB02CB000C915D1 /* Main.storyboard */,
+				2F6F118D1BD8ECCF00C89A67 /* Launch Screen.storyboard */,
 				2FF5426D1BBADD4000891A2C /* CountryCollectionViewController.swift */,
 				2FC147621BC533D8002B99CF /* CountryCodeHeaderView.swift */,
 				2F9AF0CD1BBAE14200868261 /* CountryCollectionViewCell.swift */,
 				2FA2C1931BB414F700DACE09 /* MapViewController.swift */,
 				2F8DBF571BB02CB100C915D1 /* Assets.xcassets */,
-				2F8DBF591BB02CB100C915D1 /* LaunchScreen.storyboard */,
 				2F8DBF5C1BB02CB100C915D1 /* Info.plist */,
 				2F8DBFB31BB03D9800C915D1 /* Airport-Bridging-Header.h */,
 			);
@@ -259,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8DBF5B1BB02CB100C915D1 /* LaunchScreen.storyboard in Resources */,
 				2F8DBF581BB02CB100C915D1 /* Assets.xcassets in Resources */,
 				2F8DBF561BB02CB000C915D1 /* Main.storyboard in Resources */,
+				2F6F118E1BD8ECCF00C89A67 /* Launch Screen.storyboard in Resources */,
 				2F8DBFB61BB0494C00C915D1 /* airports.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,14 +336,6 @@
 				2F8DBF551BB02CB000C915D1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2F8DBF591BB02CB100C915D1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F8DBF5A1BB02CB100C915D1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

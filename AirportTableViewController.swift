@@ -36,6 +36,7 @@ class AirportTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = UIColor.blackColor()
         let adbh = AirportDatabaseHelper.sharedInstance
         if((countryCode?.isEmpty) != nil) {
             self.airports = adbh.getInfoWithISOCountry(countryCode!)!

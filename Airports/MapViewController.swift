@@ -49,7 +49,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         airplaneAnnotation.title = "Airplane"
         airplaneAnnotation.coordinate = departureLocation
-        airplaneAnnotation.imageName = "airplane"
+        airplaneAnnotation.imageName = "airplane3"
         self.airportsMap.addAnnotation(airplaneAnnotation)
         
         drawAnnotation((airportDeparture?.name)!, location: departureLocation, type: "airport")
